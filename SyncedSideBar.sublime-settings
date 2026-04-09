@@ -21,7 +21,9 @@
 	"reveal-all-tabs": true,
 
 	/*
-	 * List of file patterns to ignore when revealing a tab in the sidebar.
+	 * List of filename patterns to ignore when revealing a tab in the sidebar
+	 * (see https://docs.python.org/3/library/fnmatch.html for more details).
+	 * Those patterns match against full file paths.
 	 *
 	 * By default, no file patterns are ignored.
 	 */

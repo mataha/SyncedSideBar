@@ -1,0 +1,53 @@
+{
+    "contributions": {
+        "settings": [
+            {
+                "schema": {
+                    "$id": "sublime://settings/SyncedSideBar",
+                    "properties": {
+                        "reveal-on-activate": {
+                            "type": "boolean",
+                            "markdownDescription": "Plugin active state.\n\nDefaults to true.",
+                            "default": "true"
+                        },
+                        "reveal-all-tabs": {
+                            "type": "boolean",
+                            "markdownDescription": "Controls window switch behaviour.\n\nBy default, when new windows are opened the plugin will switch to all available views so the sidebar is expanded properly.",
+                            "default": "true"
+                        },
+                        "reveal-ignore-patterns": {
+                            "type": "array",
+                            "markdownDescription": "List of [filename patterns](https://docs.python.org/3/library/fnmatch.html) to ignore when revealing a tab in the sidebar. Those patterns match against full file paths.\n\nBy default, no file patterns are ignored.",
+                            "default": []
+                        }
+                    }
+                },
+            },
+            {
+                "file_patterns": ["/SyncedSideBar.sublime-settings"],
+                "schema": {
+                    "$ref": "sublime://settings/SyncedSideBar",
+                    "additionalProperties": false
+                }
+            },
+            {
+                "file_patterns": ["/Preferences.sublime-settings"],
+                "schema": {
+                    "$ref": "sublime://settings/SyncedSideBar",
+                    "additionalProperties": true
+                }
+            },
+            {
+                "file_patterns": ["/*.sublime-project"],
+                "schema": {
+                    "properties": {
+                        "settings": {
+                            "$ref": "sublime://settings/SyncedSideBar",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
