@@ -41,7 +41,7 @@ def plugin_loaded():
             pluginPref = vis
 
         ignores = userSettings.get('reveal-ignore-patterns')
-        if ignores:
+        if ignores is not None:
             global pluginPatterns
             pluginPatterns = ignores
 
@@ -52,7 +52,7 @@ def plugin_loaded():
             pluginPref = vis
 
         ignores = packageSettings.get('reveal-ignore-patterns')
-        if ignores:
+        if ignores is not None:
             global pluginPatterns
             pluginPatterns = ignores
 
@@ -128,7 +128,7 @@ def show_view(view):
     reveal = userPref if userPref is not None else pluginPref
 
     userPatterns = view.settings().get('reveal-ignore-patterns')
-    patterns = userPatterns if userPatterns else pluginPatterns
+    patterns = userPatterns if userPatterns is not None else pluginPatterns
 
     activeWindow = view.window()
 
