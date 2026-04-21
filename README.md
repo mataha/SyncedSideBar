@@ -43,14 +43,14 @@ Settings can be overridden on a per-project basis by adding them to the `setting
 
 * `reveal-on-activate` controls the automatic reveal as the active tab changes (true by default).
 * `reveal-all-tabs` controls whether or not the plugin will cycle through all tabs when a window opens (true by default).
-
+* `reveal-ignore-patterns` controls [filename patterns](https://docs.python.org/3/library/fnmatch.html) to ignore when revealing a tab in the sidebar (none by default). These patterns match against full file paths.
 
 Sublime versions and sidebar visibility
 ---------------------------------------
 
-This plugin works on both Sublime Text 2 and Sublime Text 3 beta. The new capabilities enabled by ST3 are designed to gracefully degrade to the old behaviour on ST2.
+This plugin works on Sublime Text 2 and later. New capabilities enabled by ST3 and above are designed to gracefully degrade to the old behaviour on ST2.
 
-With ST3 build `3098` or above the plugin makes use of the new sidebar visibility API to disable automatic syncing when the sidebar is hidden.
+With ST4 and ST3 build `3098` or above the plugin makes use of the sidebar visibility API to disable automatic syncing when the sidebar is hidden.
 
 With ST3 builds `3025`-`3097` the plugin _monitors_ sidebar visibility. It forces the sidebar to become visible the first time a window is opened in each Sublime session, and after that watches for the sidebar hide command to disable automatic syncing until it is shown again.
 
